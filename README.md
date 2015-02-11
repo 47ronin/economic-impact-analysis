@@ -1,4 +1,7 @@
-Port of San Diego economic impact report, 2015..
+Port of San Diego economic impact report, 2015
+===
+
+The framework was adapted from Code for America’s [Annual Report](https://github.com/codeforamerica/annual/ "Code for America Annual Report") project.
 
 Install
 ---
@@ -18,8 +21,7 @@ Preview the generated site at: http://localhost:4000/
 Design
 ---
 
-This project uses Sass for its stylesheets. Make visual adjustments to the
-.scss files and compile with Compass. Traverse into your project directory and:
+This project uses Sass for its stylesheets. Make visual adjustments to the .scss files and compile with Compass. Traverse into your project directory and:
 
     compass watch
 
