@@ -733,7 +733,28 @@ a.appspop:hover {
   }
 }
 
-/* line 130, ../sass/_backgrounds.scss */
+/* line 131, ../sass/_backgrounds.scss */
+.pagebg.bg_portbuilding {
+  background: url("../img/bg_portbuilding.jpg") no-repeat;
+  background-size: cover;
+  background-position: right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_portbuilding.jpg', sizingMethod='scale')";
+}
+@media screen and (max-width: 1024px) {
+  /* line 131, ../sass/_backgrounds.scss */
+  .pagebg.bg_portbuilding {
+    background: url("../img/bg_portbuilding_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 131, ../sass/_backgrounds.scss */
+  .pagebg.bg_portbuilding {
+    background: #A6A6A6;
+  }
+}
+
+/* line 146, ../sass/_backgrounds.scss */
 .pagebg.imageforthepeople {
   background: url("../img/forthepeople.jpg") no-repeat;
   background-size: cover;
@@ -741,20 +762,20 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/forthepeople.jpg', sizingMethod='scale')";
 }
 @media screen and (max-width: 1024px) {
-  /* line 130, ../sass/_backgrounds.scss */
+  /* line 146, ../sass/_backgrounds.scss */
   .pagebg.imageforthepeople {
     background: url("../img/forthepeople_small.jpg") no-repeat;
     background-size: 1024px;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* line 130, ../sass/_backgrounds.scss */
+  /* line 146, ../sass/_backgrounds.scss */
   .pagebg.imageforthepeople {
     background: #7ab5d6;
   }
 }
 
-/* line 146, ../sass/_backgrounds.scss */
+/* line 162, ../sass/_backgrounds.scss */
 .pagebg.imageiphone {
   background: url("../img/iphone.jpg") no-repeat;
   background-size: cover;
@@ -762,7 +783,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/iphone.jpg', sizingMethod='scale')";
 }
 
-/* line 152, ../sass/_backgrounds.scss */
+/* line 168, ../sass/_backgrounds.scss */
 .pagebg.imagebike {
   background: url("../img/bike.jpg");
   background-size: cover;
@@ -770,7 +791,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bike.jpg', sizingMethod='scale')";
 }
 
-/* line 158, ../sass/_backgrounds.scss */
+/* line 174, ../sass/_backgrounds.scss */
 .pagebg.imagechicagocityhall {
   background: url("../img/chicago_cityhall.jpg");
   background-size: cover;
@@ -778,7 +799,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/chicago_cityhall.jpg', sizingMethod='scale')";
 }
 
-/* line 164, ../sass/_backgrounds.scss */
+/* line 180, ../sass/_backgrounds.scss */
 .pagebg.imagebigdata2 {
   background: url("../img/big_data2.jpg");
   background-size: cover;
@@ -786,7 +807,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/big_data_2.jpg', sizingMethod='scale')";
 }
 
-/* line 170, ../sass/_backgrounds.scss */
+/* line 186, ../sass/_backgrounds.scss */
 .pagebg.imagefellows {
   background: url("../img/fellows.jpg");
   background-size: cover;
@@ -794,7 +815,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/fellows.jpg', sizingMethod='scale')";
 }
 
-/* line 176, ../sass/_backgrounds.scss */
+/* line 192, ../sass/_backgrounds.scss */
 .pagebg.imagebigdata {
   background: url("../img/big_data.jpg");
   background-size: cover;
@@ -802,7 +823,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/big_data.jpg', sizingMethod='scale')";
 }
 
-/* line 182, ../sass/_backgrounds.scss */
+/* line 198, ../sass/_backgrounds.scss */
 .pagebg.imagehonolulu {
   background: url("../img/honolulu.jpg");
   background-size: cover;
@@ -810,7 +831,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/honolulu.jpg', sizingMethod='scale')";
 }
 
-/* line 188, ../sass/_backgrounds.scss */
+/* line 204, ../sass/_backgrounds.scss */
 .pagebg.imageserena {
   background: url("../img/serena.jpg");
   background-size: cover;
@@ -818,7 +839,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/serena.jpg', sizingMethod='scale')";
 }
 
-/* line 194, ../sass/_backgrounds.scss */
+/* line 210, ../sass/_backgrounds.scss */
 .pagebg.imagecommunity {
   background: url("../img/community.jpg");
   background-size: cover;
@@ -826,7 +847,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/community.jpg', sizingMethod='scale')";
 }
 
-/* line 200, ../sass/_backgrounds.scss */
+/* line 216, ../sass/_backgrounds.scss */
 .pagebg.imagecfaoffice {
   background: url("../img/cfa_office.jpg");
   background-size: cover;
@@ -834,7 +855,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/cfa_office.jpg', sizingMethod='scale')";
 }
 
-/* line 206, ../sass/_backgrounds.scss */
+/* line 222, ../sass/_backgrounds.scss */
 .pagebg.imageannual_report_back {
   background: url("../img/annual_report_back.jpg") no-repeat;
   background-size: cover;
@@ -842,7 +863,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/annual_report_back.jpg', sizingMethod='scale')";
 }
 
-/* line 212, ../sass/_backgrounds.scss */
+/* line 228, ../sass/_backgrounds.scss */
 .pagebg.imagepressback {
   background: url("../img/pressback.jpg") no-repeat;
   background-size: cover;
@@ -850,7 +871,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/pressback.jpg', sizingMethod='scale')";
 }
 
-/* line 219, ../sass/_backgrounds.scss */
+/* line 235, ../sass/_backgrounds.scss */
 .pagebg img {
   min-width: 100%;
   min-height: 100%;
@@ -2240,30 +2261,21 @@ a.startupspop:hover {
 }
 
 /* line 17, ../sass/_getinvolved.scss */
-.getinvolved p:first-child:first-letter {
-  float: left;
-  font-size: 48px;
-  line-height: 50px;
-  padding-right: 8px;
-  padding-left: 3px;
-}
-
-/* line 25, ../sass/_getinvolved.scss */
 .getinvolved h1 {
   color: #000 !important;
-  font-size: 100px !important;
+  font-size: 44px !important;
   text-align: center;
   margin: 0px 0px 60px 0px;
 }
 
-/* line 32, ../sass/_getinvolved.scss */
+/* line 24, ../sass/_getinvolved.scss */
 .getinvolved h4 {
   text-transform: none;
   margin-top: 19px;
   font-size: 22px;
 }
 
-/* line 38, ../sass/_getinvolved.scss */
+/* line 30, ../sass/_getinvolved.scss */
 .getinvolved h5 {
   font-size: 16px;
   font-style: normal;
@@ -2271,43 +2283,44 @@ a.startupspop:hover {
   text-align: center;
 }
 
-/* line 45, ../sass/_getinvolved.scss */
+/* line 37, ../sass/_getinvolved.scss */
 .getinvolved p {
   font-size: 17px;
   line-height: 25px;
+  text-align: center;
 }
 
-/* line 50, ../sass/_getinvolved.scss */
+/* line 43, ../sass/_getinvolved.scss */
 .getinvolved img {
   width: 40%;
   margin-top: 15px;
 }
 
-/* line 55, ../sass/_getinvolved.scss */
+/* line 48, ../sass/_getinvolved.scss */
 .getinvolved a {
   color: #000;
 }
 
-/* line 59, ../sass/_getinvolved.scss */
+/* line 52, ../sass/_getinvolved.scss */
 .getinvolved a:hover,
 .companies a:hover {
   color: #C82A45;
   border-bottom: #C82A45 solid 1px;
 }
 
-/* line 65, ../sass/_getinvolved.scss */
+/* line 58, ../sass/_getinvolved.scss */
 .getinvolved span {
   font-weight: 700;
 }
 
-/* line 69, ../sass/_getinvolved.scss */
+/* line 62, ../sass/_getinvolved.scss */
 .getinvolved li {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 300;
 }
 
-/* line 75, ../sass/_getinvolved.scss */
+/* line 68, ../sass/_getinvolved.scss */
 .getinvolved form {
   background: rgba(214, 214, 214, 0.7);
   padding: 25px 30px;
@@ -2316,7 +2329,7 @@ a.startupspop:hover {
   text-align: center;
 }
 
-/* line 83, ../sass/_getinvolved.scss */
+/* line 76, ../sass/_getinvolved.scss */
 .getinvolved label {
   color: #000;
   margin-right: 10px;
