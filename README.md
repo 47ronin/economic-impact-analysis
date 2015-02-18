@@ -33,4 +33,5 @@ Resources
 ---
 
 * Sass: [http://sass-lang.com/](http://sass-lang.com/ "Sass")
+* Jekyll: [http://jekyllrb.com/](http://jekyllrb.com/ "Jekyll")
 * Compass: [http://compass-style.org/](http://compass-style.org/ "Compass")
