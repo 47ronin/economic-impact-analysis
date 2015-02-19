@@ -21,11 +21,11 @@ Preview the generated site at: http://localhost:4000/
 Design
 ---
 
-This project uses Sass for its stylesheets. Make visual adjustments to the .scss files and compile with Compass. Traverse into your project directory and:
+This project uses the Sass preprocessor to help generate flexible CSS. Make visual adjustments to the .scss files and compile with Compass. Traverse into your project directory and:
 
     compass watch
 
-Sass files are automatically compiled because Compass will watch the project directory for changes. Design, test, iterate, repeat. When complete:
+Changes to Sass files will automatically trigger Compass to compile into the project’s css directory. Design, test, iterate, repeat. When everything looks complete, celebrate and:
 
     compass compile -e production
 
