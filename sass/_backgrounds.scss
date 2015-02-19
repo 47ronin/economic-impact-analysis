@@ -127,6 +127,22 @@
     background: #A6A6A6;
   }
 }
+
+.pagebg.bg_portbuilding{ 
+  background: url("../img/bg_portbuilding.jpg") no-repeat;
+  background-size:cover;
+  background-position:right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_portbuilding.jpg', sizingMethod='scale')";
+  @media screen and (max-width: 1024px) {
+    background: url("../img/bg_portbuilding_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+  //ipad
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    background: #A6A6A6;
+  }
+}
+
 .pagebg.imageforthepeople{ 
   background: url("../img/forthepeople.jpg") no-repeat;
   background-size:cover;
