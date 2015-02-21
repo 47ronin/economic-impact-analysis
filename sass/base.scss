@@ -576,6 +576,12 @@ padding-left: 20px;
   margin: 0px 50px 50px 0px;
 }
 
+.people li.cityname {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
 .people .google,
 .people .knight,
 .people .on {
@@ -599,6 +605,10 @@ padding-left: 20px;
   background-image: url('../img/on.png');
   background-size: 135px;
   width: 135px;
+}
+
+.span7.bioright p {
+	font-size: 15px;
 }
 
 /*

@@ -1375,33 +1375,37 @@ a.appspop:hover {
 /* line 8, ../sass/_global-reset.scss */
 html, body {
   height: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* line 12, ../sass/_global-reset.scss */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+/* line 22, ../sass/_global-reset.scss */
 body {
   background: #fff;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
-  webkit-font-smoothing: subpixel-antialiased;
   text-align: left;
   font-weight: 600;
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* line 22, ../sass/_global-reset.scss */
+/* line 31, ../sass/_global-reset.scss */
 h1 {
   font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   margin: .25em .25em 1em 0em;
   font-weight: 700;
 }
 
-/* line 28, ../sass/_global-reset.scss */
+/* line 37, ../sass/_global-reset.scss */
 p {
   margin: 1em 0;
   line-height: 23px;
+  font-weight: 400;
 }
 
-/* line 33, ../sass/_global-reset.scss */
+/* line 43, ../sass/_global-reset.scss */
 a {
   color: #fff;
   text-decoration: none;
@@ -1409,35 +1413,36 @@ a {
   cursor: pointer;
 }
 
-/* line 40, ../sass/_global-reset.scss */
+/* line 50, ../sass/_global-reset.scss */
 a:hover {
   color: #fff;
   border-bottom: #fff solid 1px;
   text-decoration: none;
 }
 
-/* line 46, ../sass/_global-reset.scss */
+/* line 56, ../sass/_global-reset.scss */
 table {
   font-size: inherit;
   font: 100%;
 }
 
-/* line 51, ../sass/_global-reset.scss */
+/* line 61, ../sass/_global-reset.scss */
 .page {
   clear: both;
 }
 
-/* line 54, ../sass/_global-reset.scss */
+/* line 64, ../sass/_global-reset.scss */
 .clear {
   clear: both;
 }
 
-/* line 58, ../sass/_global-reset.scss */
+/* line 68, ../sass/_global-reset.scss */
 li {
   list-style: none;
+  font-weight: 400;
 }
 
-/* line 62, ../sass/_global-reset.scss */
+/* line 73, ../sass/_global-reset.scss */
 .row-fluid {
   max-width: 960px;
 }
@@ -2476,84 +2481,85 @@ iframe.twitter-share-button {
 .financials p {
   font-size: 17px;
   margin: 10px 0;
+  font-weight: 400;
 }
 
-/* line 52, ../sass/_finance.scss */
+/* line 53, ../sass/_finance.scss */
 .financials .programs {
   margin-bottom: 5px;
 }
 
-/* line 56, ../sass/_finance.scss */
+/* line 57, ../sass/_finance.scss */
 .financials .programs p {
   margin-left: 25px;
 }
 
-/* line 60, ../sass/_finance.scss */
+/* line 61, ../sass/_finance.scss */
 .icon-question-sign.icon-white {
   position: absolute;
   margin: -5px 0px 0px 2px;
 }
 
-/* line 65, ../sass/_finance.scss */
+/* line 66, ../sass/_finance.scss */
 .financials .rightcol h5,
 .financials .rightcol h4,
 .financials .rightcol p {
   text-align: right;
 }
 
-/* line 71, ../sass/_finance.scss */
+/* line 72, ../sass/_finance.scss */
 .financials br {
   line-height: 30px;
 }
 
-/* line 75, ../sass/_finance.scss */
+/* line 76, ../sass/_finance.scss */
 .expenses a:hover,
 .revenues a:hover {
   border-bottom: none;
 }
 
-/* line 80, ../sass/_finance.scss */
+/* line 81, ../sass/_finance.scss */
 .expenses .popover-content,
 .revenues .popover-content {
   font-size: 14px;
 }
 
-/* line 85, ../sass/_finance.scss */
+/* line 86, ../sass/_finance.scss */
 .revenues .popover-content {
   line-height: 22px;
 }
 
-/* line 89, ../sass/_finance.scss */
+/* line 90, ../sass/_finance.scss */
 .expensesdata,
 .revenuedata {
   cursor: pointer;
 }
 
-/* line 94, ../sass/_finance.scss */
+/* line 95, ../sass/_finance.scss */
 .expensesdata.active,
 .revenuedata.active,
 .financialsgroup.active {
   color: #fedd44;
 }
 
-/* line 100, ../sass/_finance.scss */
+/* line 101, ../sass/_finance.scss */
 .financialsgroup {
   cursor: pointer;
 }
 
-/* line 104, ../sass/_finance.scss */
+/* line 105, ../sass/_finance.scss */
 .graphsection {
   height: 60px;
   float: right;
   cursor: pointer;
 }
 
-/* line 110, ../sass/_finance.scss */
+/* line 111, ../sass/_finance.scss */
 .graphsection.active {
   background-color: #fedd44 !important;
 }
 
-/* line 114, ../sass/_finance.scss */
+/* line 115, ../sass/_finance.scss */
 .expenses.bargraph,
 .revenues.bargraph {
   margin-top: 30px;
@@ -3208,13 +3214,25 @@ input[type="text"] {
 }
 
 /* line 569, ../sass/base.scss */
+.people h4 {
+  text-transform: uppercase;
+}
+
+/* line 573, ../sass/base.scss */
 .people ul {
   float: left;
   line-height: 26px;
   margin: 0px 50px 50px 0px;
 }
 
-/* line 575, ../sass/base.scss */
+/* line 579, ../sass/base.scss */
+.people li.cityname {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* line 585, ../sass/base.scss */
 .people .google,
 .people .knight,
 .people .on {
@@ -3222,36 +3240,41 @@ input[type="text"] {
   height: 40px;
 }
 
-/* line 582, ../sass/base.scss */
+/* line 592, ../sass/base.scss */
 .people .google {
   background-image: url("../img/google.png");
   background-size: 105px;
   width: 105px;
 }
 
-/* line 588, ../sass/base.scss */
+/* line 598, ../sass/base.scss */
 .people .knight {
   background-image: url("../img/knight.png");
   background-size: 185px;
   width: 185px;
 }
 
-/* line 594, ../sass/base.scss */
+/* line 604, ../sass/base.scss */
 .people .on {
   background-image: url("../img/on.png");
   background-size: 135px;
   width: 135px;
 }
 
+/* line 610, ../sass/base.scss */
+.span7.bioright p {
+  font-size: 15px;
+}
+
 /*
 Temporary css for image placeholders
 */
-/* line 604, ../sass/base.scss */
+/* line 618, ../sass/base.scss */
 .ecosystem h1 {
   margin-top: 70px;
 }
 
-/* line 608, ../sass/base.scss */
+/* line 622, ../sass/base.scss */
 .ecosystem h2 {
   font-size: 27px;
   font-weight: 300;
@@ -3259,12 +3282,12 @@ Temporary css for image placeholders
   margin-top: 58px;
 }
 
-/* line 615, ../sass/base.scss */
+/* line 629, ../sass/base.scss */
 .apps h3 {
   margin-bottom: 10px;
 }
 
-/* line 619, ../sass/base.scss */
+/* line 633, ../sass/base.scss */
 .companies {
   background-color: rgba(255, 255, 255, 0.75);
   color: #000;
@@ -3274,82 +3297,82 @@ Temporary css for image placeholders
   height: 345px;
 }
 
-/* line 628, ../sass/base.scss */
+/* line 642, ../sass/base.scss */
 .companies img {
   width: 82%;
   padding: 40px 0px 0px 5em;
 }
 
-/* line 633, ../sass/base.scss */
+/* line 647, ../sass/base.scss */
 .companies .companyblurb {
   float: left;
   padding: 40px 60px 0 0;
   text-align: left;
 }
 
-/* line 639, ../sass/base.scss */
+/* line 653, ../sass/base.scss */
 .companies .companyblurb img {
   width: 40%;
   padding-top: 0px;
 }
 
-/* line 644, ../sass/base.scss */
+/* line 658, ../sass/base.scss */
 .companies h5 {
   text-transform: uppercase;
   font-weight: 700;
   font-style: normal;
 }
 
-/* line 650, ../sass/base.scss */
+/* line 664, ../sass/base.scss */
 .companies p {
   font-size: 16px;
   line-height: 22px;
 }
 
-/* line 655, ../sass/base.scss */
+/* line 669, ../sass/base.scss */
 .companies a {
   color: #000;
 }
 
-/* line 659, ../sass/base.scss */
+/* line 673, ../sass/base.scss */
 .companies .contact {
   font-size: 16px;
 }
 
-/* line 663, ../sass/base.scss */
+/* line 677, ../sass/base.scss */
 .tagline {
   font-style: italic;
   font-weight: 700;
 }
 
-/* line 668, ../sass/base.scss */
+/* line 682, ../sass/base.scss */
 img.progicons {
   width: 100%;
   margin-top: -7px;
 }
 
-/* line 673, ../sass/base.scss */
+/* line 687, ../sass/base.scss */
 .market img.progicons {
   margin: 0;
 }
 
-/* line 677, ../sass/base.scss */
+/* line 691, ../sass/base.scss */
 .community img {
   margin: 0;
   display: block;
 }
 
-/* line 682, ../sass/base.scss */
+/* line 696, ../sass/base.scss */
 .community p {
   margin: 0px;
 }
 
-/* line 687, ../sass/base.scss */
+/* line 701, ../sass/base.scss */
 .community .people ul {
   margin: 0px 0px 8px 0px;
 }
 
-/* line 692, ../sass/base.scss */
+/* line 706, ../sass/base.scss */
 .captains a:hover,
 .fellowcard a:hover,
 .moreapps a:hover,
@@ -3357,23 +3380,23 @@ img.progicons {
   border-bottom: none;
 }
 
-/* line 699, ../sass/base.scss */
+/* line 713, ../sass/base.scss */
 .popover {
   border-radius: 0px;
 }
 
-/* line 703, ../sass/base.scss */
+/* line 717, ../sass/base.scss */
 .popover-content {
   margin-top: 0px;
   padding-top: 0px;
 }
 
-/* line 707, ../sass/base.scss */
+/* line 721, ../sass/base.scss */
 .popovertopshim {
   margin-top: 50px;
 }
 
-/* line 711, ../sass/base.scss */
+/* line 725, ../sass/base.scss */
 .popover-title,
 .popover-content {
   font-weight: 300;
@@ -3381,7 +3404,7 @@ img.progicons {
   text-shadow: none;
 }
 
-/* line 718, ../sass/base.scss */
+/* line 732, ../sass/base.scss */
 .popover-title,
 .popover-title {
   font-weight: 700;
@@ -3391,14 +3414,14 @@ img.progicons {
   padding-bottom: 0px;
 }
 
-/* line 727, ../sass/base.scss */
+/* line 741, ../sass/base.scss */
 .captains .popover-content,
 .morefellows .popover-content {
   font-weight: 300;
   padding-top: 0px;
 }
 
-/* line 733, ../sass/base.scss */
+/* line 747, ../sass/base.scss */
 .jeff,
 .andrew,
 .bret,
@@ -3429,132 +3452,132 @@ img.progicons {
   margin: 20px 20px 0 0;
 }
 
-/* line 763, ../sass/base.scss */
+/* line 777, ../sass/base.scss */
 .andrew {
   background-position: 0 0px;
 }
 
-/* line 767, ../sass/base.scss */
+/* line 781, ../sass/base.scss */
 .bret {
   background-position: 0 -100px;
 }
 
-/* line 771, ../sass/base.scss */
+/* line 785, ../sass/base.scss */
 .burt {
   background-position: 0 -200px;
 }
 
-/* line 775, ../sass/base.scss */
+/* line 789, ../sass/base.scss */
 .chip {
   background-position: 0 -300px;
 }
 
-/* line 779, ../sass/base.scss */
+/* line 793, ../sass/base.scss */
 .chris {
   background-position: 0 -400px;
 }
 
-/* line 783, ../sass/base.scss */
+/* line 797, ../sass/base.scss */
 .chriswhit {
   background-position: 0 -500px;
 }
 
-/* line 787, ../sass/base.scss */
+/* line 801, ../sass/base.scss */
 .dave {
   background-position: 0 -600px;
 }
 
-/* line 791, ../sass/base.scss */
+/* line 805, ../sass/base.scss */
 .emma {
   background-position: 0 -700px;
 }
 
-/* line 795, ../sass/base.scss */
+/* line 809, ../sass/base.scss */
 .harlan {
   background-position: 0 -800px;
 }
 
-/* line 799, ../sass/base.scss */
+/* line 813, ../sass/base.scss */
 .jason {
   background-position: 0 -900px;
 }
 
-/* line 803, ../sass/base.scss */
+/* line 817, ../sass/base.scss */
 .jeff {
   background-position: 0 -1000px;
 }
 
-/* line 807, ../sass/base.scss */
+/* line 821, ../sass/base.scss */
 .jon {
   background-position: 0 -1100px;
 }
 
-/* line 811, ../sass/base.scss */
+/* line 825, ../sass/base.scss */
 .kevin {
   background-position: 0 -1200px;
 }
 
-/* line 815, ../sass/base.scss */
+/* line 829, ../sass/base.scss */
 .michelle {
   background-position: 0 -1300px;
 }
 
-/* line 819, ../sass/base.scss */
+/* line 833, ../sass/base.scss */
 .scott {
   background-position: 0 -1400px;
 }
 
-/* line 823, ../sass/base.scss */
+/* line 837, ../sass/base.scss */
 .steve {
   background-position: 0 -1500px;
 }
 
-/* line 827, ../sass/base.scss */
+/* line 841, ../sass/base.scss */
 .eddiet {
   background-position: 0 -1600px;
 }
 
-/* line 831, ../sass/base.scss */
+/* line 845, ../sass/base.scss */
 .noel {
   background-position: 0 -1700px;
 }
 
-/* line 835, ../sass/base.scss */
+/* line 849, ../sass/base.scss */
 .jasonl {
   background-position: 0 -1800px;
 }
 
-/* line 839, ../sass/base.scss */
+/* line 853, ../sass/base.scss */
 .chase {
   background-position: 0 -1900px;
 }
 
-/* line 843, ../sass/base.scss */
+/* line 857, ../sass/base.scss */
 .mevans {
   background-position: 0 -2000px;
 }
 
-/* line 847, ../sass/base.scss */
+/* line 861, ../sass/base.scss */
 .market h4 {
   margin-top: 40px;
 }
 
-/* line 851, ../sass/base.scss */
+/* line 865, ../sass/base.scss */
 .market .stats {
   margin-bottom: 10px;
 }
 
-/* line 855, ../sass/base.scss */
+/* line 869, ../sass/base.scss */
 .market .bios {
   margin-top: 30px;
 }
 
-/* line 859, ../sass/base.scss */
+/* line 873, ../sass/base.scss */
 .market .bios.right.bioquote {
   margin-top: 0px;
 }
 
-/* line 863, ../sass/base.scss */
+/* line 877, ../sass/base.scss */
 .morefellows .bios p,
 .community .bios p,
 .market .bios p,
@@ -3566,7 +3589,7 @@ img.progicons {
   margin-bottom: 10px;
 }
 
-/* line 874, ../sass/base.scss */
+/* line 888, ../sass/base.scss */
 .morefellows .bios h3,
 .community .bios h3,
 .market .bios h3,
@@ -3576,7 +3599,7 @@ img.progicons {
   text-align: left;
 }
 
-/* line 883, ../sass/base.scss */
+/* line 897, ../sass/base.scss */
 .morefellows .bios h5,
 .community .bios h5,
 .market .bios h5,
@@ -3589,17 +3612,17 @@ img.progicons {
   text-align: left;
 }
 
-/* line 895, ../sass/base.scss */
+/* line 909, ../sass/base.scss */
 .market .stats h4 {
   margin-top: 20px;
 }
 
-/* line 899, ../sass/base.scss */
+/* line 913, ../sass/base.scss */
 .market h4.process {
   margin-top: 50px;
 }
 
-/* line 903, ../sass/base.scss */
+/* line 917, ../sass/base.scss */
 .sharebutton {
   position: fixed;
   bottom: 10px;
@@ -3608,12 +3631,12 @@ img.progicons {
   height: 70px;
 }
 
-/* line 911, ../sass/base.scss */
+/* line 925, ../sass/base.scss */
 .sharebutton iframe {
   min-height: auto;
 }
 
-/* line 915, ../sass/base.scss */
+/* line 929, ../sass/base.scss */
 .fluidCharts {
   width: 100%;
   height: 700px;
