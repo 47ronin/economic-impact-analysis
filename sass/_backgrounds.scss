@@ -173,6 +173,36 @@
   }
 }
 
+.pagebg.bg_pier32{ 
+  background: url("../img/bg_pier32.jpg") no-repeat;
+  background-size:cover;
+  background-position:right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_pier32.jpg', sizingMethod='scale')";
+  @media screen and (max-width: 1024px) {
+    background: url("../img/bg_pier32_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+  //ipad
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    background: #A6A6A6;
+  }
+}
+
+.pagebg.bg_imperialbeach{ 
+  background: url("../img/bg_imperialbeach.jpg") no-repeat;
+  background-size:cover;
+  background-position:right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_imperialbeach.jpg', sizingMethod='scale')";
+  @media screen and (max-width: 1024px) {
+    background: url("../img/bg_imperialbeach_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+  //ipad
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    background: #A6A6A6;
+  }
+}
+
 .pagebg.imageforthepeople{ 
   background: url("../img/forthepeople.jpg") no-repeat;
   background-size:cover;
