@@ -659,13 +659,31 @@ $(function(){
 
 
   // Create map
-  var layer = mapbox.layer().id('codeforamerica.h9pfapk3');
-  var insetLayer =  mapbox.layer().id('codeforamerica.h9pfapk3');
+  L.mapbox.accessToken = 'pk.eyJ1IjoiNDdyb25pbiIsImEiOiJ4NzlOQTMwIn0.GIvtMgRuDxJG6mndOoosCA';
+  var map = L.mapbox.map(
+	  'map',
+	  '47ronin.la0m372j',
+	  {
+	  	zoomControl: false,
+		center: [32.695, -117.156],
+		zoom: 12
+	  }
+  );
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+  if (map.tap) map.tap.disable();
+  
+  map.featureLayer.on('click', function(e) {
+          map.panTo(e.layer.getLatLng());
+      });
+  
+  var insetLayer = L.mapbox.featureLayer('47ronin.la0m372j');
   var storyLayer
 
-  var map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
+  var map = L.mapbox.map('map', insetLayer, null, [easey_handlers.DragHandler()]);
 
-  var inset = mapbox.map('mapInset', insetLayer, null, [easey_handlers.DragHandler()]);
+  var inset = L.mapbox.map('mapInset', insetLayer, null, [easey_handlers.DragHandler()]);
   inset.centerzoom({lat: 0, lon: 0 }, 0)
 
   map.centerzoom({lat: 43.6, lon: -79.4 }, 4)
