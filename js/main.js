@@ -657,6 +657,37 @@ $(function(){
     html: true
   });
 
+  var arrowInterval =0;
+  var mapcurrentyear = "2011";
+  var timer;
+  scrollEvent.on("middle", $(".mapscroll"), function(el,i){
+    yearMarkers(2013);
+  });
+
+ scrollEvent.on("top", $(".page"), function(el,i){
+
+   $(".navbar li").removeClass("active");;
+   if($(el).attr("data-section") !== "")
+     $(".navbar li."+$(el).attr("data-section")).addClass("active");
+
+ },function(){
+
+ });
+ scrollEvent.on("bottom", $(".page"), function(el,i){
+
+   $(".navbar li").removeClass("active");;
+   if($(el).attr("data-section") !== "")
+     $(".navbar li."+$(el).attr("data-section")).addClass("active");
+
+ },function(){
+
+ });
+
+  $(".navbar .nav li a").on("click touchend", function(e){
+    e.preventDefault();
+    var section = $(e.currentTarget).parent().attr("class").split(" ")[0];
+    $("body,html").animate({scrollTop: $($("div.page[data-section='"+section+"']")[0]).offset().top}, 1000);
+  });
 
   // Create map
   L.mapbox.accessToken = 'pk.eyJ1IjoiNDdyb25pbiIsImEiOiJ4NzlOQTMwIn0.GIvtMgRuDxJG6mndOoosCA';
@@ -1028,37 +1059,7 @@ function addStories(name) {
 
   });
 
-  var arrowInterval =0;
-  var mapcurrentyear = "2011";
-  var timer;
-  scrollEvent.on("middle", $(".mapscroll"), function(el,i){
-    yearMarkers(2013);
-  });
 
- scrollEvent.on("top", $(".page"), function(el,i){
-
-   $(".navbar li").removeClass("active");;
-   if($(el).attr("data-section") !== "")
-     $(".navbar li."+$(el).attr("data-section")).addClass("active");
-
- },function(){
-
- });
- scrollEvent.on("bottom", $(".page"), function(el,i){
-
-   $(".navbar li").removeClass("active");;
-   if($(el).attr("data-section") !== "")
-     $(".navbar li."+$(el).attr("data-section")).addClass("active");
-
- },function(){
-
- });
-
-  $(".navbar .nav li a").on("click touchend", function(e){
-    e.preventDefault();
-    var section = $(e.currentTarget).parent().attr("class").split(" ")[0];
-    $("body,html").animate({scrollTop: $($("div.page[data-section='"+section+"']")[0]).offset().top}, 1000);
-  });
 
 });
 
