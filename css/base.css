@@ -1459,13 +1459,14 @@ a.appspop:hover {
 /* line 8, ../sass/_global-reset.scss */
 html, body {
   height: 100%;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
   -webkit-font-smoothing: subpixel-antialiased;
 }
-/* line 22, ../sass/_global-reset.scss */
+/* line 24, ../sass/_global-reset.scss */
 body {
   background: #fff;
   color: #fff;
@@ -1475,21 +1476,21 @@ body {
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* line 31, ../sass/_global-reset.scss */
+/* line 33, ../sass/_global-reset.scss */
 h1 {
   font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   margin: .25em .25em 1em 0em;
   font-weight: 700;
 }
 
-/* line 37, ../sass/_global-reset.scss */
+/* line 39, ../sass/_global-reset.scss */
 p {
   margin: 1em 0;
   line-height: 23px;
   font-weight: 400;
 }
 
-/* line 43, ../sass/_global-reset.scss */
+/* line 45, ../sass/_global-reset.scss */
 a {
   color: #fff;
   text-decoration: none;
@@ -1497,36 +1498,36 @@ a {
   cursor: pointer;
 }
 
-/* line 50, ../sass/_global-reset.scss */
+/* line 52, ../sass/_global-reset.scss */
 a:hover {
   color: #fff;
   border-bottom: #fff solid 1px;
   text-decoration: none;
 }
 
-/* line 56, ../sass/_global-reset.scss */
+/* line 58, ../sass/_global-reset.scss */
 table {
   font-size: inherit;
   font: 100%;
 }
 
-/* line 61, ../sass/_global-reset.scss */
+/* line 63, ../sass/_global-reset.scss */
 .page {
   clear: both;
 }
 
-/* line 64, ../sass/_global-reset.scss */
+/* line 66, ../sass/_global-reset.scss */
 .clear {
   clear: both;
 }
 
-/* line 68, ../sass/_global-reset.scss */
+/* line 70, ../sass/_global-reset.scss */
 li {
   list-style: none;
   font-weight: 400;
 }
 
-/* line 73, ../sass/_global-reset.scss */
+/* line 75, ../sass/_global-reset.scss */
 .row-fluid {
   max-width: 960px;
 }
