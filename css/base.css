@@ -839,6 +839,27 @@ a.appspop:hover {
 }
 
 /* line 206, ../sass/_backgrounds.scss */
+.pagebg.bg_nevpfun {
+  background: url("../img/bg_nevpfun.jpg") no-repeat;
+  background-size: cover;
+  background-position: right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_nevpfun.jpg', sizingMethod='scale')";
+}
+@media screen and (max-width: 1024px) {
+  /* line 206, ../sass/_backgrounds.scss */
+  .pagebg.bg_nevpfun {
+    background: url("../img/bg_nevpfun_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* line 206, ../sass/_backgrounds.scss */
+  .pagebg.bg_nevpfun {
+    background: #A6A6A6;
+  }
+}
+
+/* line 221, ../sass/_backgrounds.scss */
 .pagebg.imageforthepeople {
   background: url("../img/forthepeople.jpg") no-repeat;
   background-size: cover;
@@ -846,20 +867,20 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/forthepeople.jpg', sizingMethod='scale')";
 }
 @media screen and (max-width: 1024px) {
-  /* line 206, ../sass/_backgrounds.scss */
+  /* line 221, ../sass/_backgrounds.scss */
   .pagebg.imageforthepeople {
     background: url("../img/forthepeople_small.jpg") no-repeat;
     background-size: 1024px;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* line 206, ../sass/_backgrounds.scss */
+  /* line 221, ../sass/_backgrounds.scss */
   .pagebg.imageforthepeople {
     background: #7ab5d6;
   }
 }
 
-/* line 222, ../sass/_backgrounds.scss */
+/* line 237, ../sass/_backgrounds.scss */
 .pagebg.imageiphone {
   background: url("../img/iphone.jpg") no-repeat;
   background-size: cover;
@@ -867,7 +888,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/iphone.jpg', sizingMethod='scale')";
 }
 
-/* line 228, ../sass/_backgrounds.scss */
+/* line 243, ../sass/_backgrounds.scss */
 .pagebg.imagebike {
   background: url("../img/bike.jpg");
   background-size: cover;
@@ -875,7 +896,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bike.jpg', sizingMethod='scale')";
 }
 
-/* line 234, ../sass/_backgrounds.scss */
+/* line 249, ../sass/_backgrounds.scss */
 .pagebg.imagechicagocityhall {
   background: url("../img/chicago_cityhall.jpg");
   background-size: cover;
@@ -883,7 +904,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/chicago_cityhall.jpg', sizingMethod='scale')";
 }
 
-/* line 240, ../sass/_backgrounds.scss */
+/* line 255, ../sass/_backgrounds.scss */
 .pagebg.imagebigdata2 {
   background: url("../img/big_data2.jpg");
   background-size: cover;
@@ -891,7 +912,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/big_data_2.jpg', sizingMethod='scale')";
 }
 
-/* line 246, ../sass/_backgrounds.scss */
+/* line 261, ../sass/_backgrounds.scss */
 .pagebg.imagefellows {
   background: url("../img/fellows.jpg");
   background-size: cover;
@@ -899,7 +920,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/fellows.jpg', sizingMethod='scale')";
 }
 
-/* line 252, ../sass/_backgrounds.scss */
+/* line 267, ../sass/_backgrounds.scss */
 .pagebg.imagebigdata {
   background: url("../img/big_data.jpg");
   background-size: cover;
@@ -907,7 +928,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/big_data.jpg', sizingMethod='scale')";
 }
 
-/* line 258, ../sass/_backgrounds.scss */
+/* line 273, ../sass/_backgrounds.scss */
 .pagebg.imagehonolulu {
   background: url("../img/honolulu.jpg");
   background-size: cover;
@@ -915,7 +936,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/honolulu.jpg', sizingMethod='scale')";
 }
 
-/* line 264, ../sass/_backgrounds.scss */
+/* line 279, ../sass/_backgrounds.scss */
 .pagebg.imageserena {
   background: url("../img/serena.jpg");
   background-size: cover;
@@ -923,7 +944,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/serena.jpg', sizingMethod='scale')";
 }
 
-/* line 270, ../sass/_backgrounds.scss */
+/* line 285, ../sass/_backgrounds.scss */
 .pagebg.imagecommunity {
   background: url("../img/community.jpg");
   background-size: cover;
@@ -931,7 +952,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/community.jpg', sizingMethod='scale')";
 }
 
-/* line 276, ../sass/_backgrounds.scss */
+/* line 291, ../sass/_backgrounds.scss */
 .pagebg.imagecfaoffice {
   background: url("../img/cfa_office.jpg");
   background-size: cover;
@@ -939,7 +960,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/cfa_office.jpg', sizingMethod='scale')";
 }
 
-/* line 282, ../sass/_backgrounds.scss */
+/* line 297, ../sass/_backgrounds.scss */
 .pagebg.imageannual_report_back {
   background: url("../img/annual_report_back.jpg") no-repeat;
   background-size: cover;
@@ -947,7 +968,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/annual_report_back.jpg', sizingMethod='scale')";
 }
 
-/* line 288, ../sass/_backgrounds.scss */
+/* line 303, ../sass/_backgrounds.scss */
 .pagebg.imagepressback {
   background: url("../img/pressback.jpg") no-repeat;
   background-size: cover;
@@ -955,7 +976,7 @@ a.appspop:hover {
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/pressback.jpg', sizingMethod='scale')";
 }
 
-/* line 295, ../sass/_backgrounds.scss */
+/* line 310, ../sass/_backgrounds.scss */
 .pagebg img {
   min-width: 100%;
   min-height: 100%;
@@ -1459,13 +1480,14 @@ a.appspop:hover {
 /* line 8, ../sass/_global-reset.scss */
 html, body {
   height: 100%;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
   -webkit-font-smoothing: subpixel-antialiased;
 }
-/* line 22, ../sass/_global-reset.scss */
+/* line 24, ../sass/_global-reset.scss */
 body {
   background: #fff;
   color: #fff;
@@ -1475,21 +1497,21 @@ body {
   text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-/* line 31, ../sass/_global-reset.scss */
+/* line 33, ../sass/_global-reset.scss */
 h1 {
   font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   margin: .25em .25em 1em 0em;
   font-weight: 700;
 }
 
-/* line 37, ../sass/_global-reset.scss */
+/* line 39, ../sass/_global-reset.scss */
 p {
   margin: 1em 0;
   line-height: 23px;
   font-weight: 400;
 }
 
-/* line 43, ../sass/_global-reset.scss */
+/* line 45, ../sass/_global-reset.scss */
 a {
   color: #fff;
   text-decoration: none;
@@ -1497,36 +1519,36 @@ a {
   cursor: pointer;
 }
 
-/* line 50, ../sass/_global-reset.scss */
+/* line 52, ../sass/_global-reset.scss */
 a:hover {
   color: #fff;
   border-bottom: #fff solid 1px;
   text-decoration: none;
 }
 
-/* line 56, ../sass/_global-reset.scss */
+/* line 58, ../sass/_global-reset.scss */
 table {
   font-size: inherit;
   font: 100%;
 }
 
-/* line 61, ../sass/_global-reset.scss */
+/* line 63, ../sass/_global-reset.scss */
 .page {
   clear: both;
 }
 
-/* line 64, ../sass/_global-reset.scss */
+/* line 66, ../sass/_global-reset.scss */
 .clear {
   clear: both;
 }
 
-/* line 68, ../sass/_global-reset.scss */
+/* line 70, ../sass/_global-reset.scss */
 li {
   list-style: none;
   font-weight: 400;
 }
 
-/* line 73, ../sass/_global-reset.scss */
+/* line 75, ../sass/_global-reset.scss */
 .row-fluid {
   max-width: 960px;
 }
@@ -2335,21 +2357,20 @@ a.startupspop:hover {
 
 /* line 3, ../sass/_getinvolved.scss */
 .getinvolved {
-  background: rgba(255, 255, 255, 0.95);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
   padding: 70px 80px;
   text-shadow: none;
   font-family: 'Arvo', 'Georgia', serif;
-  margin: 200px 180px 100px;
+  margin: 30% 20% 10%;
 }
 
-/* line 13, ../sass/_getinvolved.scss */
+/* line 12, ../sass/_getinvolved.scss */
 .getinvolved.joinus {
   padding: 30px 0px 45px;
 }
 
-/* line 17, ../sass/_getinvolved.scss */
+/* line 16, ../sass/_getinvolved.scss */
 .getinvolved h1 {
   color: #000 !important;
   font-size: 44px !important;
@@ -2357,14 +2378,14 @@ a.startupspop:hover {
   margin: 0px 0px 60px 0px;
 }
 
-/* line 24, ../sass/_getinvolved.scss */
+/* line 23, ../sass/_getinvolved.scss */
 .getinvolved h4 {
   text-transform: none;
   margin-top: 19px;
   font-size: 22px;
 }
 
-/* line 30, ../sass/_getinvolved.scss */
+/* line 29, ../sass/_getinvolved.scss */
 .getinvolved h5 {
   font-size: 16px;
   font-style: normal;
@@ -2372,44 +2393,44 @@ a.startupspop:hover {
   text-align: center;
 }
 
-/* line 37, ../sass/_getinvolved.scss */
+/* line 36, ../sass/_getinvolved.scss */
 .getinvolved p {
   font-size: 17px;
   line-height: 25px;
   text-align: center;
 }
 
-/* line 43, ../sass/_getinvolved.scss */
+/* line 42, ../sass/_getinvolved.scss */
 .getinvolved img {
   width: 40%;
   margin-top: 15px;
 }
 
-/* line 48, ../sass/_getinvolved.scss */
+/* line 47, ../sass/_getinvolved.scss */
 .getinvolved a {
   color: #000;
 }
 
-/* line 52, ../sass/_getinvolved.scss */
+/* line 51, ../sass/_getinvolved.scss */
 .getinvolved a:hover,
 .companies a:hover {
   color: #C82A45;
   border-bottom: #C82A45 solid 1px;
 }
 
-/* line 58, ../sass/_getinvolved.scss */
+/* line 57, ../sass/_getinvolved.scss */
 .getinvolved span {
   font-weight: 700;
 }
 
-/* line 62, ../sass/_getinvolved.scss */
+/* line 61, ../sass/_getinvolved.scss */
 .getinvolved li {
   margin-bottom: 15px;
   font-size: 20px;
   font-weight: 300;
 }
 
-/* line 68, ../sass/_getinvolved.scss */
+/* line 67, ../sass/_getinvolved.scss */
 .getinvolved form {
   background: rgba(214, 214, 214, 0.7);
   padding: 25px 30px;
@@ -2418,7 +2439,7 @@ a.startupspop:hover {
   text-align: center;
 }
 
-/* line 76, ../sass/_getinvolved.scss */
+/* line 75, ../sass/_getinvolved.scss */
 .getinvolved label {
   color: #000;
   margin-right: 10px;
