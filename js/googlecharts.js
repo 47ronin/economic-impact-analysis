@@ -83,7 +83,7 @@ function drawVisualization1() {
    });
 
    // Initialize animation
-   chart.draw(view, options);
+   chart.draw(data, options);
 
    // Redraw charts on window resize
    $(window).resize(function() {
