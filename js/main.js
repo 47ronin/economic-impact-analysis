@@ -691,7 +691,7 @@ $(function(){
 
   // Create map
   L.mapbox.accessToken = 'pk.eyJ1IjoiNDdyb25pbiIsImEiOiJ4NzlOQTMwIn0.GIvtMgRuDxJG6mndOoosCA';
-  var map = L.mapbox.map(
+  var layer = L.mapbox.map(
 	  'map',
 	  '47ronin.la0m372j',
 	  {
@@ -699,28 +699,34 @@ $(function(){
 		center: [32.695, -117.156],
 		zoom: 12
 	  }
+  );  
+  var insetLayer = L.mapbox.featureLayer(
+	  '47ronin.la0m372j',
+	  {
+	  	zoomControl: false,
+		zoom: 0
+	  }
   );
-  map.touchZoom.disable();
-  map.doubleClickZoom.disable();
-  map.scrollWheelZoom.disable();
-  if (map.tap) map.tap.disable();
-  
-  map.featureLayer.on('click', function(e) {
-          map.panTo(e.layer.getLatLng());
-      });
-  
-  var insetLayer = L.mapbox.featureLayer('47ronin.la0m372j');
   var storyLayer
 
-  var map = L.mapbox.map('map', insetLayer, null, [easey_handlers.DragHandler()]);
+  // var map = L.mapbox.map('map',layer,null);
+  // Lock zoom, keep pan
+  layer.touchZoom.disable();
+  layer.doubleClickZoom.disable();
+  layer.scrollWheelZoom.disable();
+  if (layer.tap) layer.tap.disable();
+  
+  layer.featureLayer.on('click', function(e) {
+          layer.panTo(e.layer.getLatLng());
+      });
 
-  var inset = L.mapbox.map('mapInset', insetLayer, null, [easey_handlers.DragHandler()]);
-  inset.centerzoom({lat: 0, lon: 0 }, 0)
+  var inset = L.mapbox.map('mapInset', insetLayer, null);
+  // inset.centerzoom({lat: 0, lon: 0 }, 0)
 
-  map.centerzoom({lat: 43.6, lon: -79.4 }, 4)
+  // map.centerzoom({lat: 32.695, lon: -117.156}, 12)
 
-  var markerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
-  var insetMarkerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
+  var markerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
+  var insetMarkerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
 
   var displayedMarkers = [];
   var currentMarker = null;
@@ -730,7 +736,7 @@ $(function(){
   //     b.geometry.coordinates[0];
   // });
 
-  markerLayer.addCallback("markeradded", function(l, m){
+  markerLayer.on("markeradded", function(l, m){
     displayedMarkers.push(m);
      $(m.element).css("opacity", "0");
 
@@ -740,7 +746,7 @@ $(function(){
 
   });
 
-  insetMarkerLayer.addCallback("markeradded", function(l, m){
+  insetMarkerLayer.on("markeradded", function(l, m){
     displayedMarkers.push(m);
      $(m.element).css("opacity", "0");
 
@@ -798,8 +804,8 @@ $(function(){
   }
 
 
-  markerLayer.factory(markerFactory);
-  insetMarkerLayer.factory(insetMarkerFactory);
+  markerLayer.getGeoJSON(markerFactory);
+  insetMarkerLayer.getGeoJSON(insetMarkerFactory);
 
   var years = ["2011", "2012", "2013"]
 
@@ -812,7 +818,7 @@ $(function(){
   var summitLayer, codeacrossLayer, innovationLayer
   var stories = ["summit", "codeacross", "innovation"]
 
-  map.addLayer(markerLayer);
+  layer.addLayer(markerLayer);
   inset.addLayer(insetMarkerLayer);
 
 
@@ -925,8 +931,8 @@ $(function(){
 
   function yearMarkers(year) {
     inset.removeLayer(insetMarkerLayer);
-    insetMarkerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
-    insetMarkerLayer.factory(insetMarkerFactory);
+    insetMarkerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
+    insetMarkerLayer.setGeoJSON(insetMarkerFactory);
     inset.addLayer(insetMarkerLayer)
     $svg = $("#marker");
     $svgInsert = $('#markerInset')
@@ -990,8 +996,8 @@ function addStories(name) {
   $($("#map").children()[1]).css("z-index", "1");
 
   // Attribute map
-  map.ui.attribution.add()
-    .content('<a href="http://mapbox.com/about/maps">Map by Mapbox</a>');
+  // map.ui.attribution.add()
+  //   .content('<a href="http://mapbox.com/about/maps">Map by Mapbox</a>');
 
 
   // var colors = ["#2f3d4a", "#384857", "#405264", "#50677C", "#839AAF", "#B4C2CF", "#E6EBEF", "#FFFFFF"];
