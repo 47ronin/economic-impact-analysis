@@ -926,10 +926,14 @@ img.progicons {
 }
 
 .fluidCharts {
-	width:100%;
-	height:700px;
+	max-width:100%;
 }
-
+#chart1_div {
+	height:600px;
+}
+#chart2_div {
+	height:500px;
+}
 
 
 

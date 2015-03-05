@@ -3785,6 +3785,15 @@ img.progicons {
 
 /* line 928, ../sass/base.scss */
 .fluidCharts {
-  width: 100%;
-  height: 700px;
+  max-width: 100%;
+}
+
+/* line 931, ../sass/base.scss */
+#chart1_div {
+  height: 600px;
+}
+
+/* line 934, ../sass/base.scss */
+#chart2_div {
+  height: 500px;
 }
