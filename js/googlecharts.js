@@ -123,7 +123,7 @@ function drawVisualization2() {
 		}
 	},
     vAxis: {
-		title: "Economic output: $ millions",
+		title: "Economic output in millions of $",
 		titleTextStyle: {
 			color: "white"
 		},
@@ -134,6 +134,12 @@ function drawVisualization2() {
 		}
 	},
     hAxis: {
+		textStyle: {
+			color: "white"
+		}
+	},
+	annotations: {
+		highContrast: false,
 		textStyle: {
 			color: "white"
 		}
