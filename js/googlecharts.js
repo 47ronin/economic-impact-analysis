@@ -179,3 +179,92 @@ function drawVisualization2() {
    });
 
 }
+
+google.setOnLoadCallback(drawVisualization3);
+function drawVisualization3() {
+
+  // dataset “Largest employers, San Diego County”
+  var data = google.visualization.arrayToDataTable([
+    ['Employer',                                    'Employees', { role: 'annotation' }, { role: 'style'}],
+	['State of California',               {v:43300, f:'43,300'},  {v:43300, f:'43,300'},           'blue'],
+	['On Port Tidelands',                 {v:33400, f:'33,400'},  {v:33400, f:'33,400'},           'gold'],
+	['UC San Diego',                      {v:28672, f:'28,672'},  {v:28672, f:'28,672'},           'blue'],
+	['Federal Government',                {v:24200, f:'24,200'},  {v:24200, f:'24,200'},           'blue'],
+	['US Dept. of Defense',               {v:21500, f:'21,500'},  {v:21500, f:'21,500'},           'blue'],
+	['County of San Diego',               {v:20100, f:'20,100'},  {v:20100, f:'20,100'},           'blue'],
+	['City of San Diego',                 {v:18000, f:'18,000'},  {v:18000, f:'18,000'},           'blue'],
+	['Sharp Healthcare',                  {v:15865, f:'15,865'},  {v:15865, f:'15,865'},           'blue'],
+	['Scripps Health',                    {v:13750, f:'13,750'},  {v:13750, f:'13,750'},           'blue'],
+	['San Diego Unified School District', {v:13559, f:'13,559'},  {v:13559, f:'13,559'},           'blue']
+  ]);
+  
+  var view = new google.visualization.DataView(data);
+      view.setColumns([0, {
+          type: 'number',
+          label: data.getColumnLabel(1),
+          calc: function () {return 0;}
+      }, {
+          type: 'number',
+          label: data.getColumnLabel(2),
+          calc: function () {return 0;}
+      }]);
+
+  var options = {
+	bars: "horizontal",
+	axes: {
+	  	y: {
+	  		0: { side: "right"}
+	  	}
+	},
+	legend: {
+		position: "none",
+		textStyle: {
+			color: "white"
+		}
+	},
+    hAxis: {
+		minValue: 0,
+		maxValue: 40000,
+		textStyle: {
+			color: "white"
+		}
+	},
+    vAxis: {
+		textStyle: {
+			color: "white"
+		}
+	},
+	annotations: {
+		highContrast: false,
+		textStyle: {
+			color: "white"
+		}
+	},
+	backgroundColor: "transparent",
+	  animation: {
+		  startup: true,
+		  duration: 2500,
+		  easing: "out"
+	  },
+	chartArea: {
+		width: "80%",
+		height: "80%"
+	}
+  };
+  
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart3_div'));
+  
+  var runOnce = google.visualization.events.addListener(chart, 'ready', function () {
+       google.visualization.events.removeListener(runOnce);
+       chart.draw(data, options);
+   });
+
+   // Initialize animation
+   chart.draw(data, options);
+
+   // Redraw charts on window resize
+   $(window).resize(function() {
+       chart.draw(data, options);
+   });
+
+}
