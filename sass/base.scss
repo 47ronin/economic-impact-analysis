@@ -41,7 +41,11 @@
 }
 
 .logo img {
-  max-width: 85px;
+  max-width: 200px;
+}
+
+.brand img {
+  max-width: 200px;
 }
 
 .nav-tabs {
@@ -77,6 +81,10 @@
   background: #fff;
   color: #e87d2b;
   border: none;
+}
+
+.navbar.nav, ul.nav {
+	left: 100px !important;
 }
 
 .networkTitle {
@@ -148,7 +156,7 @@
 }
 
 .superHeadline {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 80px;
   color: #fff;
   margin: 30px 0px 0px 00px;
@@ -239,6 +247,12 @@
   margin-bottom: 400px;
 }
 
+.intropage.longquote h1 {
+	font-size: 36px !important;
+	line-height: 60px !important;
+}
+
+
 .intropage p {
   margin: 15px 0px;
   line-height: 13px;
@@ -255,7 +269,7 @@
 }
 
 .navbar .brand {
-  max-width: 60px;
+  max-width: 85px;
 }
 
 .navbar a:hover{
@@ -293,14 +307,14 @@
 }
 
 #loading h1 {
-  font-size: 220px;
-  margin: 90px auto 117px;
+  font-size: 160px;
+  margin: 90px auto 85px;
   font-weight: 600;
 }
  
 #loading p{ 
   text-transform:uppercase;
-  font-size: 63px;
+  font-size: 64px;
   font-weight: 300;
 }
 
@@ -316,7 +330,7 @@ ul.posts span {
 }
 
 h2 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   text-align: left;
   font-size: 30px;
   margin-top: 80px;
@@ -324,11 +338,13 @@ h2 {
 }
 
 h3 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 40px;
   letter-spacing: 4px;
   text-transform: uppercase;
   margin-top: 0px;
+  line-height: 42px;
+  font-weight: 600;
 }
 
 h3 span {
@@ -337,7 +353,7 @@ h3 span {
 
 h4 {
   clear: both;
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 24px;
   letter-spacing: 2px;
   line-height: 25px;
@@ -361,7 +377,6 @@ h6 {
 }
 
 p {
-  font-weight: 300;
   font-size: 18px;
   text-align: left;
 }
@@ -541,8 +556,6 @@ padding-left: 20px;
 }
 
 .thanks img {
-  max-height: 60px;
-  max-width: 242px;
   margin: 0 auto;
   display: block;
 }
@@ -564,10 +577,20 @@ padding-left: 20px;
   font-weight: 300;
 }
 
+.people h4 {
+	text-transform: uppercase;
+}
+
 .people ul {
   float: left;
   line-height: 26px;
   margin: 0px 50px 50px 0px;
+}
+
+.people li.cityname {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 5px;
 }
 
 .people .google,
@@ -593,6 +616,10 @@ padding-left: 20px;
   background-image: url('../img/on.png');
   background-size: 135px;
   width: 135px;
+}
+
+.span7.bioright p {
+	font-size: 15px;
 }
 
 /*
@@ -910,8 +937,19 @@ img.progicons {
   min-height:auto;
 }
 
-
-
+.fluidCharts {
+	max-width:100%;
+	margin-bottom:50px;
+}
+#chart1_div {
+	height:550px;
+}
+#chart2_div {
+	height:500px;
+}
+#chart3_div {
+	height:500px;
+}
 
 
 

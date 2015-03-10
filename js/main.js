@@ -657,292 +657,347 @@ $(function(){
     html: true
   });
 
+  var arrowInterval =0;
+  var mapcurrentyear = "2011";
+  var timer;
+  scrollEvent.on("middle", $(".mapscroll"), function(el,i){
+    yearMarkers(2013);
+  });
+
+ scrollEvent.on("top", $(".page"), function(el,i){
+
+   $(".navbar li").removeClass("active");;
+   if($(el).attr("data-section") !== "")
+     $(".navbar li."+$(el).attr("data-section")).addClass("active");
+
+ },function(){
+
+ });
+ scrollEvent.on("bottom", $(".page"), function(el,i){
+
+   $(".navbar li").removeClass("active");;
+   if($(el).attr("data-section") !== "")
+     $(".navbar li."+$(el).attr("data-section")).addClass("active");
+
+ },function(){
+
+ });
+
+  $(".navbar .nav li a").on("click touchend", function(e){
+    e.preventDefault();
+    var section = $(e.currentTarget).parent().attr("class").split(" ")[0];
+    $("body,html").animate({scrollTop: $($("div.page[data-section='"+section+"']")[0]).offset().top}, 1000);
+  });
 
   // Create map
-  var layer = mapbox.layer().id('codeforamerica.h9pfapk3');
-  var insetLayer =  mapbox.layer().id('codeforamerica.h9pfapk3');
-  var storyLayer
-
-  var map = mapbox.map('map', layer, null, [easey_handlers.DragHandler()]);
-
-  var inset = mapbox.map('mapInset', insetLayer, null, [easey_handlers.DragHandler()]);
-  inset.centerzoom({lat: 0, lon: 0 }, 0)
-
-  map.centerzoom({lat: 43.6, lon: -79.4 }, 4)
-
-  var markerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
-  var insetMarkerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
-
-  var displayedMarkers = [];
-  var currentMarker = null;
-
-  // markerLayer.sort(function(a, b) {
-  //   return a.geometry.coordinates[0] -
-  //     b.geometry.coordinates[0];
-  // });
-
-  markerLayer.addCallback("markeradded", function(l, m){
-    displayedMarkers.push(m);
-     $(m.element).css("opacity", "0");
-
-    setTimeout(function(){
-      $(m.element).animate({opacity: 1}, 400)
-    }, Math.random() * 300);
-
-  });
-
-  insetMarkerLayer.addCallback("markeradded", function(l, m){
-    displayedMarkers.push(m);
-     $(m.element).css("opacity", "0");
-
-    setTimeout(function(){
-      $(m.element).animate({opacity: 1}, 400)
-    }, Math.random() * 300);
-
-  });
-
-
-
-  var markerFactory = function() {
-    var m = document.getElementById('marker').cloneNode(true);
-      m.style.display = 'block';
-      return m;
-  }
-
-  var insetMarkerFactory = function() {
-    var i = document.getElementById('markerInset').cloneNode(true);
-      i.style.display = 'block';
-      return i;
-  }
-
-
-
-  var cycleMarker = function(direction){
-
-    var position = displayedMarkers.indexOf(currentMarker);
-
-    if(direction === "next"){
-
-       if(position +1 >= displayedMarkers.length)
-        position =0;
-      else
-        position++;
-
-    }else{
-      if(position -1 < 0)
-        position =displayedMarkers.length-1;
-      else
-        position--;
-    }
-    currentMarker = displayedMarkers[position];
-    displayedMarkers[position].showTooltip();
-
-    point = map.locationPoint({
-      lat: currentMarker.data.geometry.coordinates[1],
-      lon: currentMarker.data.geometry.coordinates[0]
-    })
-
-    var quarter = map.dimensions.y * (1/ 8);
-    point.y -= quarter;
-    map.ease.location(map.pointLocation(point)).zoom(map.zoom()).optimal();
-
-  }
-
-
-  markerLayer.factory(markerFactory);
-  insetMarkerLayer.factory(insetMarkerFactory);
-
-  var years = ["2011", "2012", "2013"]
-
-  $.each(years, function(index, value){
-    $('#'+value).on('show.bs.dropdown', function() {
-      yearMarkers(value)
-    })
-  });
-
-  var summitLayer, codeacrossLayer, innovationLayer
-  var stories = ["summit", "codeacross", "innovation"]
-
-  map.addLayer(markerLayer);
-  inset.addLayer(insetMarkerLayer);
-
-
-
-  /*
-    Map story events
-  */
-
-  $('#mapInnovation').on('show.bs.dropdown', function () {
-    // addStories("innovation")
-    $svg = $("#marker");
-    $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
-    map.removeLayer(markerLayer);
-    map.addLayer(markerLayer)
-    markerLayer.filter(function(f) {
-       return f.properties['story'] !== 'innovation';
-    });
-
-    inset.removeLayer(insetMarkerLayer);
-    insetMarkerLayer = mapbox.markers.layer().features(innovation);
-    insetMarkerLayer.factory(insetMarkerFactory);
-    inset.addLayer(insetMarkerLayer)
-
-    map.removeLayer(summitLayer);
-    map.removeLayer(codeacrossLayer);
-    innovationLayer = mapbox.markers.layer().features(innovation);
-    innovationLayer.named('innovation')
-    map.addLayer(innovationLayer);
-    innovationLayer.factory(function(f) {
-        var highlight = document.getElementById('markerHighlight').cloneNode(true);
-        highlight.style.display = 'block';
-        return highlight;
-    });
-    $('#markerHighlight').parent().css("z-index", "100")
-  });
-
-  $('#mapInnovation').on('hidden.bs.dropdown', function () {
-    inset.removeLayer(insetMarkerLayer);
-    yearMarkers("2013")
-  })
-
-
-  $('#codeacross').on('shown.bs.dropdown', function () {
-    // addStories("codeacross")
-    $svg = $("#marker");
-    $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
-    map.removeLayer(markerLayer);
-    map.addLayer(markerLayer)
-    markerLayer.filter(function(f) {
-       return f.properties['story'] !== 'codeacross';
-    });
-    inset.removeLayer(insetMarkerLayer);
-    insetMarkerLayer = mapbox.markers.layer().features(codeacross);
-    insetMarkerLayer.factory(insetMarkerFactory);
-    inset.addLayer(insetMarkerLayer)
-
-    map.removeLayer(summitLayer);
-    map.removeLayer(innovationLayer);
-    codeacrossLayer = mapbox.markers.layer().features(codeacross)
-    codeacrossLayer.named('codeacross')
-
-    codeacrossLayer.factory(function(f) {
-        var highlight = document.getElementById('markerHighlight').cloneNode(true);
-        highlight.style.display = 'block';
-        return highlight;
-    });
-    map.addLayer(codeacrossLayer);
-    $('#markerHighlight').parent().css("z-index", "100")
-  });
-
-  $('#codeacross').on('hidden.bs.dropdown', function () {
-    inset.removeLayer(insetMarkerLayer);
-    yearMarkers("2013")
-  })
-
-
-  $('#summit').on('shown.bs.dropdown', function () {
-    $svg = $("#marker");
-    $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
-    map.removeLayer(markerLayer);
-    map.addLayer(markerLayer)
-    markerLayer.filter(function(f) {
-        return f.properties['story'] !== 'summit';
-    });
-
-    inset.removeLayer(insetMarkerLayer);
-    insetMarkerLayer = mapbox.markers.layer().features(summit);
-    insetMarkerLayer.factory(insetMarkerFactory);
-    inset.addLayer(insetMarkerLayer)
-
-
-    map.removeLayer(codeacrossLayer)
-    map.removeLayer(innovationLayer);
-    summitLayer = mapbox.markers.layer().features(summit);
-    map.addLayer(summitLayer);
-
-    summitLayer.factory(function(f) {
-        var highlight = document.getElementById('markerHighlight').cloneNode(true);
-        highlight.style.display = 'block';
-        return highlight;
-    });
-    $('#markerHighlight').parent().css("z-index", "100")
-  });
-
-  $('#summit').on('hidden.bs.dropdown', function () {
-    inset.removeLayer(insetMarkerLayer);
-    yearMarkers("2013")
-  })
-
-
-  function yearMarkers(year) {
-    inset.removeLayer(insetMarkerLayer);
-    insetMarkerLayer = mapbox.markers.layer().url("js/cityLocations.geojson");
-    insetMarkerLayer.factory(insetMarkerFactory);
-    inset.addLayer(insetMarkerLayer)
-    $svg = $("#marker");
-    $svgInsert = $('#markerInset')
-    switch (year) {
-      case "2011":
-        $("#markerCircle", $svg).attr('style', "fill:#6D6E71");
-        $("#markerInsetCircle", $svgInsert).attr('style', "fill:#6D6E71");
-      break;
-      case "2012":
-        $("#markerCircle", $svg).attr('style', "fill:#6D6E71");
-        $("#markerInsetCircle", $svgInsert).attr('style', "fill:#6D6E71");
-      break;
-      default:
-        $("#markerCircle", $svg).attr('style', "fill:#e87d2b");
-        $("#markerInsetCircle", $svgInsert).attr('style', "fill:#e87d2b");
-      break;
-    }
-    map.removeLayer(codeacrossLayer)
-    map.removeLayer(summitLayer)
-    map.removeLayer(innovationLayer)
-    markerLayer.filter(function(f) {
-     return f.properties.year <= year;
-    });
-    insetMarkerLayer.filter(function(e) {
-     return e.properties.year <= year;
-    });
-    return false;
-  }
-
-  
-function addStories(name) {
-  clearTimeout(timer);
-  $svg = $("#marker");
-  $("#markerCircle", $svg).attr('style', "fill:#999595");
-  // map.removeLayer(markerLayer);
-  // map.addLayer(markerLayer)
-  // markerLayer.filter(function(f) {
-  //    return f.properties['story'] !== name;
-  // });
-
-  // map.removeLayer(summitLayer);
-  // map.removeLayer(innovationLayer);
-  // codeacrossLayer = mapbox.markers.layer().features(codeacross);
-  // codeacrossLayer.named('codeacross')
-  // map.addLayer(codeacrossLayer);
-  // $('.simplestyle-marker').parent().css("z-index", "100")
-
-
-  $.each(stories, function(index, storyName) {
-    if(storyName !== name) {
-      map.removeLayer(storyName+'Layer');
-      storyLayer = mapbox.markers.layer().features(name);
-      storyLayer.named(name)
-    } else {
-      map.addLayer(storyLayer);
-      $('.simplestyle-marker').parent().css("z-index", "100")
-    }
-  });
-}
-
-  $($("#map").children()[1]).css("z-index", "1");
-
-  // Attribute map
-  map.ui.attribution.add()
-    .content('<a href="http://mapbox.com/about/maps">Map by Mapbox</a>');
+//   L.mapbox.accessToken = 'pk.eyJ1IjoiNDdyb25pbiIsImEiOiJ4NzlOQTMwIn0.GIvtMgRuDxJG6mndOoosCA';
+//   var layer = L.mapbox.map(
+// 	  'map',
+// 	  '47ronin.la0m372j',
+// 	  {
+// 	  	zoomControl: false,
+// 		center: [32.695, -117.156],
+// 		zoom: 12
+// 	  }
+//   );
+//   var insetLayer = L.mapbox.featureLayer(
+// 	  '47ronin.la0m372j',
+// 	  {
+// 	  	zoomControl: false,
+// 		zoom: 0
+// 	  }
+//   );
+//   var storyLayer
+//
+//   // var map = L.mapbox.map('map',layer,null);
+//   // Lock zoom, keep pan
+//   layer.touchZoom.disable();
+//   layer.doubleClickZoom.disable();
+//   layer.scrollWheelZoom.disable();
+//   if (layer.tap) layer.tap.disable();
+//
+//   layer.featureLayer.on('click', function(e) {
+//           layer.panTo(e.layer.getLatLng());
+//       });
+//
+//   var inset = L.mapbox.map('mapInset', insetLayer, null);
+//   // inset.centerzoom({lat: 0, lon: 0 }, 0)
+//
+//   // map.centerzoom({lat: 32.695, lon: -117.156}, 12)
+//
+//   var markerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
+//   var insetMarkerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
+//
+//   var displayedMarkers = [];
+//   var currentMarker = null;
+//
+//   // markerLayer.sort(function(a, b) {
+//   //   return a.geometry.coordinates[0] -
+//   //     b.geometry.coordinates[0];
+//   // });
+//
+//   markerLayer.on("markeradded", function(l, m){
+//     displayedMarkers.push(m);
+//      $(m.element).css("opacity", "0");
+//
+//     setTimeout(function(){
+//       $(m.element).animate({opacity: 1}, 400)
+//     }, Math.random() * 300);
+//
+//   });
+//
+//   insetMarkerLayer.on("markeradded", function(l, m){
+//     displayedMarkers.push(m);
+//      $(m.element).css("opacity", "0");
+//
+//     setTimeout(function(){
+//       $(m.element).animate({opacity: 1}, 400)
+//     }, Math.random() * 300);
+//
+//   });
+//
+//
+//
+//   var markerFactory = function() {
+//     var m = document.getElementById('marker').cloneNode(true);
+//       m.style.display = 'block';
+//       return m;
+//   }
+//
+//   var insetMarkerFactory = function() {
+//     var i = document.getElementById('markerInset').cloneNode(true);
+//       i.style.display = 'block';
+//       return i;
+//   }
+//
+//
+//
+//   var cycleMarker = function(direction){
+//
+//     var position = displayedMarkers.indexOf(currentMarker);
+//
+//     if(direction === "next"){
+//
+//        if(position +1 >= displayedMarkers.length)
+//         position =0;
+//       else
+//         position++;
+//
+//     }else{
+//       if(position -1 < 0)
+//         position =displayedMarkers.length-1;
+//       else
+//         position--;
+//     }
+//     currentMarker = displayedMarkers[position];
+//     displayedMarkers[position].showTooltip();
+//
+//     point = map.locationPoint({
+//       lat: currentMarker.data.geometry.coordinates[1],
+//       lon: currentMarker.data.geometry.coordinates[0]
+//     })
+//
+//     var quarter = map.dimensions.y * (1/ 8);
+//     point.y -= quarter;
+//     map.ease.location(map.pointLocation(point)).zoom(map.zoom()).optimal();
+//
+//   }
+//
+//
+//   markerLayer.getGeoJSON(markerFactory);
+//   insetMarkerLayer.getGeoJSON(insetMarkerFactory);
+//
+//   var years = ["2011", "2012", "2013"]
+//
+//   $.each(years, function(index, value){
+//     $('#'+value).on('show.bs.dropdown', function() {
+//       yearMarkers(value)
+//     })
+//   });
+//
+//   var summitLayer, codeacrossLayer, innovationLayer
+//   var stories = ["summit", "codeacross", "innovation"]
+//
+//   layer.addLayer(markerLayer);
+//   inset.addLayer(insetMarkerLayer);
+//
+//
+//
+//   /*
+//     Map story events
+//   */
+//
+//   $('#mapInnovation').on('show.bs.dropdown', function () {
+//     // addStories("innovation")
+//     $svg = $("#marker");
+//     $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
+//     map.removeLayer(markerLayer);
+//     map.addLayer(markerLayer)
+//     markerLayer.filter(function(f) {
+//        return f.properties['story'] !== 'innovation';
+//     });
+//
+//     inset.removeLayer(insetMarkerLayer);
+//     insetMarkerLayer = mapbox.markers.layer().features(innovation);
+//     insetMarkerLayer.factory(insetMarkerFactory);
+//     inset.addLayer(insetMarkerLayer)
+//
+//     map.removeLayer(summitLayer);
+//     map.removeLayer(codeacrossLayer);
+//     innovationLayer = mapbox.markers.layer().features(innovation);
+//     innovationLayer.named('innovation')
+//     map.addLayer(innovationLayer);
+//     innovationLayer.factory(function(f) {
+//         var highlight = document.getElementById('markerHighlight').cloneNode(true);
+//         highlight.style.display = 'block';
+//         return highlight;
+//     });
+//     $('#markerHighlight').parent().css("z-index", "100")
+//   });
+//
+//   $('#mapInnovation').on('hidden.bs.dropdown', function () {
+//     inset.removeLayer(insetMarkerLayer);
+//     yearMarkers("2013")
+//   })
+//
+//
+//   $('#codeacross').on('shown.bs.dropdown', function () {
+//     // addStories("codeacross")
+//     $svg = $("#marker");
+//     $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
+//     map.removeLayer(markerLayer);
+//     map.addLayer(markerLayer)
+//     markerLayer.filter(function(f) {
+//        return f.properties['story'] !== 'codeacross';
+//     });
+//     inset.removeLayer(insetMarkerLayer);
+//     insetMarkerLayer = mapbox.markers.layer().features(codeacross);
+//     insetMarkerLayer.factory(insetMarkerFactory);
+//     inset.addLayer(insetMarkerLayer)
+//
+//     map.removeLayer(summitLayer);
+//     map.removeLayer(innovationLayer);
+//     codeacrossLayer = mapbox.markers.layer().features(codeacross)
+//     codeacrossLayer.named('codeacross')
+//
+//     codeacrossLayer.factory(function(f) {
+//         var highlight = document.getElementById('markerHighlight').cloneNode(true);
+//         highlight.style.display = 'block';
+//         return highlight;
+//     });
+//     map.addLayer(codeacrossLayer);
+//     $('#markerHighlight').parent().css("z-index", "100")
+//   });
+//
+//   $('#codeacross').on('hidden.bs.dropdown', function () {
+//     inset.removeLayer(insetMarkerLayer);
+//     yearMarkers("2013")
+//   })
+//
+//
+//   $('#summit').on('shown.bs.dropdown', function () {
+//     $svg = $("#marker");
+//     $("#markerCircle", $svg).attr('style', "stroke-width: 1;stroke: #e87d2b;fill:transparent");
+//     map.removeLayer(markerLayer);
+//     map.addLayer(markerLayer)
+//     markerLayer.filter(function(f) {
+//         return f.properties['story'] !== 'summit';
+//     });
+//
+//     inset.removeLayer(insetMarkerLayer);
+//     insetMarkerLayer = mapbox.markers.layer().features(summit);
+//     insetMarkerLayer.factory(insetMarkerFactory);
+//     inset.addLayer(insetMarkerLayer)
+//
+//
+//     map.removeLayer(codeacrossLayer)
+//     map.removeLayer(innovationLayer);
+//     summitLayer = mapbox.markers.layer().features(summit);
+//     map.addLayer(summitLayer);
+//
+//     summitLayer.factory(function(f) {
+//         var highlight = document.getElementById('markerHighlight').cloneNode(true);
+//         highlight.style.display = 'block';
+//         return highlight;
+//     });
+//     $('#markerHighlight').parent().css("z-index", "100")
+//   });
+//
+//   $('#summit').on('hidden.bs.dropdown', function () {
+//     inset.removeLayer(insetMarkerLayer);
+//     yearMarkers("2013")
+//   })
+//
+//
+//   function yearMarkers(year) {
+//     inset.removeLayer(insetMarkerLayer);
+//     insetMarkerLayer = L.mapbox.featureLayer("js/cityLocations.geojson");
+//     insetMarkerLayer.setGeoJSON(insetMarkerFactory);
+//     inset.addLayer(insetMarkerLayer)
+//     $svg = $("#marker");
+//     $svgInsert = $('#markerInset')
+//     switch (year) {
+//       case "2011":
+//         $("#markerCircle", $svg).attr('style', "fill:#6D6E71");
+//         $("#markerInsetCircle", $svgInsert).attr('style', "fill:#6D6E71");
+//       break;
+//       case "2012":
+//         $("#markerCircle", $svg).attr('style', "fill:#6D6E71");
+//         $("#markerInsetCircle", $svgInsert).attr('style', "fill:#6D6E71");
+//       break;
+//       default:
+//         $("#markerCircle", $svg).attr('style', "fill:#e87d2b");
+//         $("#markerInsetCircle", $svgInsert).attr('style', "fill:#e87d2b");
+//       break;
+//     }
+//     map.removeLayer(codeacrossLayer)
+//     map.removeLayer(summitLayer)
+//     map.removeLayer(innovationLayer)
+//     markerLayer.filter(function(f) {
+//      return f.properties.year <= year;
+//     });
+//     insetMarkerLayer.filter(function(e) {
+//      return e.properties.year <= year;
+//     });
+//     return false;
+//   }
+//
+//
+// function addStories(name) {
+//   clearTimeout(timer);
+//   $svg = $("#marker");
+//   $("#markerCircle", $svg).attr('style', "fill:#999595");
+//   // map.removeLayer(markerLayer);
+//   // map.addLayer(markerLayer)
+//   // markerLayer.filter(function(f) {
+//   //    return f.properties['story'] !== name;
+//   // });
+//
+//   // map.removeLayer(summitLayer);
+//   // map.removeLayer(innovationLayer);
+//   // codeacrossLayer = mapbox.markers.layer().features(codeacross);
+//   // codeacrossLayer.named('codeacross')
+//   // map.addLayer(codeacrossLayer);
+//   // $('.simplestyle-marker').parent().css("z-index", "100")
+//
+//
+//   $.each(stories, function(index, storyName) {
+//     if(storyName !== name) {
+//       map.removeLayer(storyName+'Layer');
+//       storyLayer = mapbox.markers.layer().features(name);
+//       storyLayer.named(name)
+//     } else {
+//       map.addLayer(storyLayer);
+//       $('.simplestyle-marker').parent().css("z-index", "100")
+//     }
+//   });
+// }
+//
+//   $($("#map").children()[1]).css("z-index", "1");
+//
+//   // Attribute map
+//   // map.ui.attribution.add()
+//   //   .content('<a href="http://mapbox.com/about/maps">Map by Mapbox</a>');
 
 
   // var colors = ["#2f3d4a", "#384857", "#405264", "#50677C", "#839AAF", "#B4C2CF", "#E6EBEF", "#FFFFFF"];
@@ -1010,37 +1065,7 @@ function addStories(name) {
 
   });
 
-  var arrowInterval =0;
-  var mapcurrentyear = "2011";
-  var timer;
-  scrollEvent.on("middle", $(".mapscroll"), function(el,i){
-    yearMarkers(2013);
-  });
 
- scrollEvent.on("top", $(".page"), function(el,i){
-
-   $(".navbar li").removeClass("active");;
-   if($(el).attr("data-section") !== "")
-     $(".navbar li."+$(el).attr("data-section")).addClass("active");
-
- },function(){
-
- });
- scrollEvent.on("bottom", $(".page"), function(el,i){
-
-   $(".navbar li").removeClass("active");;
-   if($(el).attr("data-section") !== "")
-     $(".navbar li."+$(el).attr("data-section")).addClass("active");
-
- },function(){
-
- });
-
-  $(".navbar .nav li a").on("click touchend", function(e){
-    e.preventDefault();
-    var section = $(e.currentTarget).parent().attr("class").split(" ")[0];
-    $("body,html").animate({scrollTop: $($("div.page[data-section='"+section+"']")[0]).offset().top}, 1000);
-  });
 
 });
 

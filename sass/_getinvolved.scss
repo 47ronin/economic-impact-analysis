@@ -1,30 +1,21 @@
 @import "colors";
 
 .getinvolved {
-  background: rgba(255, 255, 255, 0.95);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
   padding: 70px 80px;
   text-shadow: none;
   font-family: 'Arvo', 'Georgia', serif;
-  margin: 200px 180px 100px;
+  margin: 10% 20% 10%;
 }
 
 .getinvolved.joinus {
-    padding: 30px 0px 45px;
-}
-
-.getinvolved p:first-child:first-letter { 
-  float: left; 
-  font-size: 48px;
-  line-height: 50px;
-  padding-right: 8px; 
-  padding-left: 3px; 
+    padding: 10px 0px 45px;
 }
 
 .getinvolved h1 {
   color: #000 !important;
-  font-size: 100px !important;
+  font-size: 44px !important;
   text-align: center;
   margin: 0px 0px 60px 0px;
 }
@@ -33,6 +24,7 @@
   text-transform: none;
   margin-top: 19px;
   font-size: 22px;
+  text-align: center;
 }
 
 .getinvolved h5 {
@@ -45,6 +37,7 @@
 .getinvolved p {
   font-size: 17px;
   line-height: 25px;
+  text-align: center;
 }
 
 .getinvolved img {
