@@ -1583,7 +1583,7 @@ body {
 
 /* line 33, ../sass/_global-reset.scss */
 h1 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   margin: .25em .25em 1em 0em;
   font-weight: 700;
 }
@@ -2917,7 +2917,7 @@ iframe.twitter-share-button {
 
 /* line 158, ../sass/base.scss */
 .superHeadline {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 80px;
   color: #fff;
   margin: 30px 0px 0px 00px;
@@ -3130,7 +3130,7 @@ ul.posts span {
 
 /* line 332, ../sass/base.scss */
 h2 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   text-align: left;
   font-size: 30px;
   margin-top: 80px;
@@ -3139,7 +3139,7 @@ h2 {
 
 /* line 340, ../sass/base.scss */
 h3 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 40px;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -3156,7 +3156,7 @@ h3 span {
 /* line 354, ../sass/base.scss */
 h4 {
   clear: both;
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   font-size: 24px;
   letter-spacing: 2px;
   line-height: 25px;
