@@ -41,7 +41,11 @@
 }
 
 .logo img {
-  max-width: 85px;
+  max-width: 200px;
+}
+
+.brand img {
+  max-width: 200px;
 }
 
 .nav-tabs {
@@ -77,6 +81,10 @@
   background: #fff;
   color: #e87d2b;
   border: none;
+}
+
+.navbar.nav, ul.nav {
+	left: 100px !important;
 }
 
 .networkTitle {
