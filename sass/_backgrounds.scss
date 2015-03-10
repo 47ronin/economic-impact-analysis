@@ -278,6 +278,21 @@
   }
 }
 
+.pagebg.bg_sdhpfirestorm{ 
+  background: url("../img/bg_sdhpfirestorm.jpg") no-repeat;
+  background-size:cover;
+  background-position:right;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/bg_sdhpfirestorm.jpg', sizingMethod='scale')";
+  @media screen and (max-width: 1024px) {
+    background: url("../img/bg_sdhpfirestorm_sm.jpg") no-repeat;
+    background-size: 1024px;
+  }
+  //ipad
+  @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    background: #7ab5d6;
+  }
+}
+
 
 .pagebg.imageiphone{ 
   background: url("../img/iphone.jpg") no-repeat;
