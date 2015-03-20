@@ -7,26 +7,39 @@
 
 html, body {
   height: 100%;
+  //non-retina displays
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.25),
+only screen and ( min-device-pixel-ratio: 1.25),
+only screen and ( min-resolution: 200dpi),
+only screen and ( min-resolution: 1.25dppx)
+{
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 body {
   background:#fff;
   color: #fff;
   font-family: 'Open Sans', sans-serif;
-  webkit-font-smoothing:subpixel-antialiased;
   text-align: left;
   font-weight: 600;
   text-shadow: 0px 2px 6px rgba(0, 0, 0, .4);
 }
 
 h1 {
-  font-family: 'Gotham A', 'Gotham B', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
+  font-family: 'Montserrat', 'Open Sans Regular', 'Verdana', 'Helvetica', Arial;
   margin: .25em .25em 1em 0em;
+  font-weight: 700;
 }
 
 p {
   margin: 1em 0;
   line-height: 23px;
+  font-weight: 400;
 }
 
 a {
@@ -56,6 +69,7 @@ table {
 
 li {
   list-style: none;
+  font-weight: 400;
 }
 
 .row-fluid {
